@@ -1,0 +1,21 @@
+h1 {
+	text-align: center;
+}
+button {
+	display: inline-block;
+	margin-right: 10%;
+}
+
+p {
+	display: inline-block;
+}
+
+#wrapper {
+	width: 60%;
+	margin: 0px auto;
+}
+
+img{
+	display: none;
+	width: 70%;
+}

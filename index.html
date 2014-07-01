@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>JQuery Problems</title>
+	<style>
+	.red {
+		color: red;
+	}
+	</style>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+
+		$('#addClass-button').click(function(){
+			$('#addClass-p').addClass("red");
+		});
+
+		$('#slideToggle-button').click(function(){
+			$('#slideToggle-img').slideToggle("slow");
+		});
+
+		$('#append-button').click(function(){
+			$('#append-p').append("<p>You are awesome!</p>");
+		});
+
+		$('#after-button').click(function(){
+			$('button').after("<p>Test</p>");
+		});
+
+		$('#before-button').click(function(){
+			$('#before-p').before("<p>TIME TRAVEL!</p>");
+		});
+
+		$('#html-p').click(function(){
+			var htmlString = $(this).html();
+				$(this).text(htmlString);
+		});
+
+		function displayVals() {
+			var myFruit = $('#fruit').val();
+			var fruitSalad = $('#fruit-picks').val() || [];
+
+			$('#fruit-view').html("<b>Single:</b>" + myFruit + "<b>Salad Picks:</b>" + fruitSalad.join(","));
+		};
+		$('select').change(displayVals);
+
+		$('#toggle-button').click(function(){
+			$("#toggle-div p").toggle();
+		});
+
+		$('#slidetoggle-button').click(function(){
+			$("#slidetoggle-div p").slideToggle("slow");
+		});
+	});
+	</script>
+</head>
+<body>
+	<div id="wrapper">
+		<h1>AddClass</h1>
+		<button type="button" id="addClass-button">AddClass</button>
+		<p id="addClass-p">Click the button to add class 'red' to this paragraph</p>
+		<hr>
+
+		<h1>SlideToggle</h1>
+		<button type="button" id="slideToggle-button">Slidetoggle</button>
+		<p>Click the button to slidetoggle a hidden image</p>
+		<img id="slideToggle-img" src="pic.png"/>
+		<hr>
+
+		<h1>Append</h1>
+		<button id="append-button" type="button">Append</button>
+		<p id="append-p">Click the button to append a new paragraph!</p>
+		<hr>
+
+		<h1>After</h1>
+		<button id="after-button" type="button">After</button>
+		<p id="after-p">Click the button to "<p>Test</p>" after buttons!</p>
+		<hr>
+
+		<h1>*Attr</h1>
+		<p id="-p">The type of the first button is:<u></u></p>
+		<script>
+			var butt=$("#addClass-button").attr("type");
+			$("u").text(butt);
+		</script>
+		<hr>
+		
+		<h1>Before</h1>
+		<button id="before-button" type="button">Before</button>
+		<p id="before-p">Click the button to add "before" before this paragraph, but after you click!</p>
+		<hr>
+		
+		<h1>*HTML</h1>
+		<p id="html-p">Click the <button id="html-button" type="button">HTML</button> to change!</p>
+		<hr>
+		
+		<h1>VAL</h1>
+		<p>SELECT YOUR FAVORITE</p>
+		<select id="fruit">
+			<option>Banana</option>	
+			<option>Pineapple</option>	
+			<option>Grapes</option>	
+			<option>Oranges</option>	
+			<option>Papaya</option>	
+		</select>
+
+		<p>SELECT YOUR SALAD INGREDIENTS</p>
+		<select id="fruit-picks" multiple="multiple">
+			<option>Banana</option>	
+			<option>Pineapple</option>	
+			<option>Grapes</option>	
+			<option>Oranges</option>	
+			<option>Papaya</option>	
+		</select>
+
+		<p id="fruit-view"></p>
+		<hr>
+
+		<h1>TOGGLE</h1>
+		<button id="toggle-button" type="button">TOGGLE!</button>
+		<div id="toggle-div">
+			<p>duck</p>
+			<p>duck</p>
+			<p>duck</p>
+			<p>duck</p>
+			<p>duck</p>
+			<p style="display: none">goose</p>			
+			<p>duck</p>
+			<p>duck</p>
+			<p style="display: none">duck</p>
+			<p>duck</p>
+			<p>duck</p>
+			<p>duck</p>
+			<p style="display: none">goose</p>
+			<p>duck</p>
+		</div>
+		<hr>
+
+		<h1>HIDE</h1>
+		<button id="-button" type="button"></button>
+		<p id="-p">SKIPPED</p>
+		<hr>
+
+		<h1>SHOW</h1>
+		<button id="-button" type="button"></button>
+		<p id="-p">SKIPPED</p>
+		<hr>
+
+		<h1>SLIDE TOGGLE</h1>
+		<button id="slidetoggle-button" type="button">TOGGLE!</button>
+		<div id="slidetoggle-div">
+			<p>duck</p>
+			<p>duck</p>
+			<p>duck</p>
+			<p>duck</p>
+			<p>GOOSE</p>
+			<p>duck</p>
+			<p>duck</p>
+			<p>duck</p>
+			<p>GOOSE</p>
+			<p>duck</p>
+			<p>duck</p>
+		</div>
+		<hr>
+
+		<h1>SLIDE DOWN</h1>
+		<button id="-button" type="button"></button>
+		<p id="-p">SKIPPED</p>
+		<hr>
+
+		<h1>SLIDE UP</h1>
+		<button id="-button" type="button"></button>
+		<p id="-p">SKIPPED</p>
+		<hr>
+
+		<h1>FADE OUT</h1>
+		<button id="-button" type="button"></button>
+		<p id="-p">Click the button to add  after a new paragraph!</p>
+		<hr>
+
+		<h1>FADE IN</h1>
+		<button id="-button" type="button"></button>
+		<p id="-p">Click the button to add  after a new paragraph!</p>
+		<hr>
+
+		<h1>FOCUS</h1>
+		<button id="-button" type="button"></button>
+		<p id="-p">Click the button to add  after a new paragraph!</p>
+		<hr>
+
+		<h1>CLICK</h1>
+		<button id="-button" type="button"></button>
+		<p id="-p">Click the button to add  after a new paragraph!</p>
+		<hr>
+
+
+	</div>
+</body>
+</html>
